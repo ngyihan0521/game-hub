@@ -9,9 +9,10 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import { HStack, Icon, Text } from "@chakra-ui/react";
+import { HStack, Icon } from "@chakra-ui/react";
 import { Platform } from "../hooks/useGames";
 import { IconType } from "react-icons";
+import { ElementType } from "react";
 
 interface Props {
   platforms: Platform[];
@@ -35,7 +36,7 @@ const PlatformIconList = ({ platforms }: Props) => {
       {platforms.map((platform) => (
         <Icon
           key={platform.id}
-          as={iconMap[platform.slug]}
+          as={iconMap[platform.slug] as ElementType} // “Trust me — this thing I'm pulling from the map is a JSX-renderable component.”
           color={"gray.500"}
         />
       ))}
